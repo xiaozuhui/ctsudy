@@ -4,7 +4,9 @@
 
 #ifndef C_PRIMER_PLUS_10_13编成练习_H
 #define C_PRIMER_PLUS_10_13编成练习_H
-
+// 2
+void copy_arr(int * target, const int * source, int n);
+void copy_ptr(int * target, const int * source, int n);
 // 3
 int max(const int * arr, int n);
 

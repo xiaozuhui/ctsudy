@@ -4,6 +4,12 @@
 
 #include "10-13编成练习.h"
 
+void copy_arr(int * target, const int * source, int n){
+    for(int i = 0;i<n;i++) {
+        target[i] = source[i];
+    }
+}
+
 int max(const int * arr, int n) {
     int max = 0;
     for (int i = 0; i < n; i++) {

@@ -1,4 +1,4 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /mnt/d/codes/cstudy/c-primer-plus
--- Configuring done
--- Generating done
--- Build files have been written to: /mnt/d/codes/cstudy/c-primer-plus/cmake-build-debug-wsl
+CMake 可执行文件不正确 配置 禁用配置文件
+
+无法获取编译器信息:
+	Connection refused: connect

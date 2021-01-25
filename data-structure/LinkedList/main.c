@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "linked_list.h"
 
 int main() {
@@ -8,13 +7,22 @@ int main() {
     print(node);
     add(node, 12);
     print(node);
-//    Node *node2 = init(23);
-//    print(node2);
-//    Node *node3 = (struct Node*)malloc(sizeof(struct Node));
-//    node3->is_header = TRUE;
-//    node3->v = 0;
-//    print(node3);
-//    printf("%d\n", isHeader(node3));
-//    printf("%d\n", isEmpty(node3));
-    printf("第%d个节点是：%d", 2, get(node, 2)->v);
+    printNode(get(node, 2));
+    printNode(get(node, 7));
+    printNode(get(node, -1));
+    printNode(get(node, 0));
+    printNode(get(node, 9));
+    node = delete(node, 3);
+    print(node);
+    node = pop(node);
+    print(node);
+    // 相隔一个
+    swap(node, 2,4);
+    print(node);
+    // 相邻
+    swap(node, 1,2);
+    print(node);
+    // 相隔多个
+    swap(node, 2, 5);
+    print(node);
 }

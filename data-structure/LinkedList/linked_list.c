@@ -17,7 +17,7 @@ int isHeader(Node *node) {
 
 /**
  * 判断是否存在后续节点
- * @param node
+ * @param node 链表任何一个节点
  * @return
  */
 int hasFollow(Node *node) {
@@ -96,19 +96,28 @@ Node* add(Node *p, int val) {
  * @return
  */
 Node* get(Node *p, int index) {
-    if(p == NULL) {
+    if(p == NULL || index < 0) {
         return NULL;
     }
-    for(int i = 1; i <= index && p->next != NULL; i++) {
-        p = p->next;
+    if(index == 0){  // 如果是0，则返回哨兵
+        return p;
     }
-    return p;
+    // 得到index前一个节点
+    for(int i = 1; i < index; i++) {
+        if(p->next != NULL) {
+            p = p->next;
+        } else {
+            return NULL;
+        }
+    }
+    return hasFollow(p) ? p->next : NULL;
 }
 
 /**
  * 创建多个节点
- * @param node
- * @param values
+ * @param node   哨兵节点
+ * @param values 需要创建节点的值
+ * @param n      节点的个数
  * @return
  */
 Node* generateList(Node *node, const int * values, int n) {
@@ -126,7 +135,7 @@ Node* generateList(Node *node, const int * values, int n) {
 
 /**
  * 打印链表
- * @param node
+ * @param node 该链表的哨兵节点，但是准确地说，可以是任何一个节点
  */
 void print(Node *node) {
     if(node == NULL || isEmpty(node)) {
@@ -141,4 +150,128 @@ void print(Node *node) {
         printf("%d -> ", node->v);
     }
     printf("null\n");
+}
+
+/**
+ * 打印节点本身
+ * @param node
+ */
+void printNode(Node *node) {
+    if(node == NULL) {
+        printf("[]\n");
+        return;
+    }
+    printf("值：%d\t是否头节点：%s\n", node->v, node->is_header ? "是" : "否");
+}
+
+/**
+ * 删除指定下标的节点
+ * 因为有哨兵，所以下标是从1开始迭代
+ * @param node 该链表的哨兵
+ * @param n    需要删除的节点的下标
+ * @return 返回链表的哨兵节点
+ */
+Node* delete(Node *node, int n) {
+    if (isEmpty(node)) {
+        return NULL;
+    }
+    // 获取到哨兵, node作为哨兵，不动
+    Node *preNode = node;
+    // 获取到n节点的前一个节点
+    for(int i = 1; i < n; i++) {
+        if (preNode->next == NULL) {
+            return NULL;
+        }
+        preNode = preNode->next;
+    }
+    // 没有n节点，所以返回0
+    if (preNode->next == NULL) {
+        return NULL;
+    }
+    // 获取到目标节点，以及后续节点
+    Node *targetNode = preNode->next;
+    // 如果目标节点后续没有节点，那么说明目标节点就是最后一个节点
+    if(targetNode->next == NULL) {
+        preNode->next = NULL;
+    } else {
+        Node *followUpNode = targetNode->next;
+        preNode->next = followUpNode;
+    }
+    free(targetNode);
+    return node;
+}
+
+/**
+ * 删除末尾的节点
+ * @param node
+ */
+Node* pop(Node *node) {
+    if (isEmpty(node)) {
+        return NULL;
+    }
+    Node *header = node;
+    // 获取到倒数第二个数
+    while(node->next != NULL && node->next->next != NULL) {
+        node = node->next;
+    }
+    Node *lastNode = node->next;
+    node->next = NULL;
+    free(lastNode);
+    return header;
+}
+
+/**
+ * 清空所有的节点，除了哨兵
+ * @param node 链表的哨兵节点
+ */
+Node* clear(Node *node) {
+    if (isEmpty(node)) {
+        return NULL;
+    }
+    if(!node->is_header) {
+        return NULL;
+    }
+    while (node->next != NULL) {
+        node = pop(node);
+    }
+    return node;
+}
+
+/**
+ * 交换两个指定位置的节点的位置
+ * 两个状况：两个节点相邻、两个节点不相邻
+ * @param node 链表的哨兵节点
+ * @param n    下标，大于等于1
+ * @param m    下标，大于等于1
+ * @return 返回链表的哨兵节点
+ */
+Node* swap(Node *node, int n, int m) {
+    if (isEmpty(node)) {
+        return NULL;
+    }
+    if (n == m || n <= 0 || m <= 0) {
+        return NULL;
+    }
+    int pre = n < m ? n : m;
+    int follow = n < m ? m : n;
+    Node *preNode = get(node, pre - 1);
+    Node *target1 = get(node, pre);
+    Node *target2 = get(node, follow);
+    Node *lastNode = get(node, follow + 1);
+    if (pre + 1 == follow) {
+        // 如果是相邻的节点
+        preNode->next = target2;
+        target2->next = target1;
+        target1->next = lastNode;
+    } else {
+        // 如果不是相邻的节点
+        Node *target1Follow = get(node, pre + 1);
+        Node *preTarget2 = get(node, follow - 1);
+        preNode->next = target2;
+        target2->next = target1Follow;
+        target1Follow->next = preTarget2;
+        preTarget2->next = target1;
+        target1->next = lastNode;
+    }
+    return node;
 }

@@ -47,7 +47,25 @@ Node* clear(Node *node);
 // 下标为n和m的两个节点进行交换
 Node* swap(Node *node, int n, int m);
 
+// 交换某链表中的两个节点
+Node* swapNode(Node *node, Node *n1, Node *n2);
+
+// 计算链表节点个数
+int len(Node *p);
+
 // 打印节点
 void printNode(Node *node);
+
+// 排序
+void sort(Node *node);
+
+// 排序
+Node* sorted(Node *node);
+
+// 反转链表
+void reserve(Node *node);
+
+// 反转链表
+Node* reserved(Node *node);
 
 #endif //LINKED_LIST_LINKED_LIST_H

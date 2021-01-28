@@ -91,6 +91,7 @@ Node* add(Node *p, int val) {
  * 从给定的节点往后获取第n个节点
  * 如果p不存在，则返回null
  * index从1开始迭代
+ * TODO: index是不是可以为负数，然后可以从链尾部开始获取？
  * @param p
  * @param index
  * @return
@@ -252,11 +253,11 @@ Node* swap(Node *node, int n, int m) {
     if (n == m || n <= 0 || m <= 0) {
         return NULL;
     }
-    int pre = n < m ? n : m;
+    int pre    = n < m ? n : m;
     int follow = n < m ? m : n;
-    Node *preNode = get(node, pre - 1);
-    Node *target1 = get(node, pre);
-    Node *target2 = get(node, follow);
+    Node *preNode  = get(node, pre - 1);
+    Node *target1  = get(node, pre);
+    Node *target2  = get(node, follow);
     Node *lastNode = get(node, follow + 1);
     if (pre + 1 == follow) {
         // 如果是相邻的节点
@@ -266,12 +267,129 @@ Node* swap(Node *node, int n, int m) {
     } else {
         // 如果不是相邻的节点
         Node *target1Follow = get(node, pre + 1);
-        Node *preTarget2 = get(node, follow - 1);
+        Node *preTarget2    = get(node, follow - 1);
         preNode->next = target2;
         target2->next = target1Follow;
         target1Follow->next = preTarget2;
         preTarget2->next = target1;
         target1->next = lastNode;
     }
+    return node;
+}
+
+/**
+ * 交换链表中的两个节点
+ * 确保n1在n2的前链，否则会出现错误
+ * @param node 头节点
+ * @param n1   交换的节点1, 不能为头节点
+ * @param n2   交换的节点2，不能为头节点
+ * @return 返回链表的头节点
+ */
+Node* swapNode(Node *node, Node *n1, Node *n2) {
+    if (isEmpty(node)) {
+        return NULL;
+    }
+    if (n1 == NULL || n1->is_header || n2 == NULL || n2->is_header) {
+        return NULL;
+    }
+    Node *tmp = node;
+    while (tmp->next != n1) {
+        tmp = tmp->next;
+    }
+    Node *preN1 = tmp;
+    Node *n1Follow = n1->next;
+    tmp = node;
+    while (tmp->next != n2) {
+        tmp = tmp->next;
+    }
+    Node *preN2 = tmp;
+    Node *n2Follow = n2->next;
+    if (n1->next == n2) {
+        preN1->next = n2;
+        n2->next = n1;
+        n1->next = n2Follow;
+    } else {
+        preN1->next = n2;
+        n2->next = n1Follow;
+        preN2->next = n1;
+        n1->next = n2Follow;
+    }
+    return node;
+}
+
+/**
+ * 计算个数 ，不算头节点
+ * @param p
+ * @return
+ */
+int len(Node *p) {
+    int count = 0;
+    if (isEmpty(p)) {
+        return count;
+    }
+    while (p->next != NULL) {
+        count++;
+        p = p->next;
+    }
+    return count;
+}
+
+/**
+ * 排序，使用冒泡排序
+ * @param node 链表的头节点
+ */
+void sort(Node *node) {
+    if (isEmpty(node)) {
+        return;
+    }
+    Node *curr = node->next;  // node是哨兵，curr初始化为第一个值的指针
+    while(curr != NULL) {
+        Node *p = node->next;  // p为轮循的指针
+        while (p != curr) {
+            if (curr->v < p->v) {
+                swapNode(node, p, curr);
+                Node *tmp = p;
+                p = curr;
+                curr = tmp;
+            }
+            p = p->next;
+        }
+        curr = curr->next;
+    }
+}
+
+/**
+ * 排序
+ * @param node
+ * @return
+ */
+Node* sorted(Node *node) {
+    sort(node);
+    return node;
+}
+
+/**
+ * 反转链表
+ * @param node
+ */
+void reserve(Node *node) {
+    if (isEmpty(node)) {
+        return;
+    }
+    int length = len(node);
+    for(int i = 1; i <= length / 2; i++) {
+        Node *n1 = get(node, i);
+        Node *n2 = get(node, length - i + 1);
+        swapNode(node, n1, n2);
+    }
+}
+
+/**
+ * 反转链表
+ * @param node
+ * @return
+ */
+Node* reserved(Node *node) {
+    reserve(node);
     return node;
 }

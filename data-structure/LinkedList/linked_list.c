@@ -91,7 +91,7 @@ Node* add(Node *p, int val) {
  * 从给定的节点往后获取第n个节点
  * 如果p不存在，则返回null
  * index从1开始迭代
- * TODO: index是不是可以为负数，然后可以从链尾部开始获取？
+ * TODO: index是不是可以为负数，然后可以从链尾部开始获取？使用快慢指针
  * @param p
  * @param index
  * @return
@@ -112,6 +112,38 @@ Node* get(Node *p, int index) {
         }
     }
     return hasFollow(p) ? p->next : NULL;
+}
+
+/**
+ * 从链表尾部获取节点数据
+ * 使用快慢指针
+ * @param p
+ * @param index
+ * @return 寻找到的值
+ */
+Node* getNegative(Node *p, int index) {
+    if(p == NULL) {
+        return NULL;
+    }
+    if(index == 0){
+        return p;
+    }
+    if (index < 0) {
+        index = abs(index);
+    }
+    Node *slow = p, *fast = p;
+    for(int i = 1; i < index; i++) {
+        if(fast->next != NULL) {
+            fast = fast->next;
+        } else {
+            return NULL;
+        }
+    }
+    while (fast->next != NULL) {
+        fast = fast->next;
+        slow = slow->next;
+    }
+    return slow;
 }
 
 /**
@@ -392,4 +424,24 @@ void reserve(Node *node) {
 Node* reserved(Node *node) {
     reserve(node);
     return node;
+}
+
+/**
+ * 判断是否存在循环节点
+ * @param node
+ * @return
+ */
+int hasLoop(Node *node) {
+    // 使用快慢指针
+    Node *slow = node, *fast = node;
+    slow = slow->next;
+    fast = fast->next->next;
+    while (fast != slow && fast->next != NULL && slow->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    if (slow == fast) {
+        return TRUE;
+    }
+    return FALSE;
 }

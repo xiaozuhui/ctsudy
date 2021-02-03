@@ -29,6 +29,9 @@ Node* add(Node *p, int val);
 // 获取某节点后第n个节点
 Node* get(Node *p, int index);
 
+// 反向寻找
+Node* getNegative(Node *p, int index);
+
 // 创建多个节点
 Node* generateList(Node *node, const int *values, int n);
 
@@ -67,5 +70,11 @@ void reserve(Node *node);
 
 // 反转链表
 Node* reserved(Node *node);
+
+// 判断是否存在循环
+int hasLoop(Node *node);
+
+// TODO 获取循环的起始节点
+Node* getLoopStartNode(Node *node);
 
 #endif //LINKED_LIST_LINKED_LIST_H

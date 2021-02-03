@@ -13,30 +13,45 @@
  * TODO 会出现循环
  */
 typedef struct DoLNode {
-    void * value;
-    char vt; // 如果是头节点，H；如果是尾节点，T
+    char * value;
+    char vt; // 如果是头节点，H；如果是尾节点，T; 普通节点，N;
     struct DoLNode *pre, *nxt;
 } DoLNode;
 
 // 生成一个节点
-DoLNode* Init();
+DoLNode* InitNode(char *val, _Bool isHead, _Bool isTrail);
 
 // 根据arr数组生成一个链表，返回头节点
-DoLNode* CreateList(void * arr, int n);
+DoLNode* CreateList(char **arr, int n);
+
+// 增加节点
+DoLNode* Add(DoLNode *node, char * *arr, int n);
 
 // 清空所有的节点
-DoLNode* clear(DoLNode *node);
+DoLNode* Clear(DoLNode *node);
 
 // 删除整个链表
-void deleteList(DoLNode *node);
+void DeleteList(DoLNode *node);
 
 // 删除下标为i的节点，前序
-DoLNode* delete(int i);
+DoLNode* Delete(int i);
 
 // 删除节点，前序
-DoLNode* deleteNode(DoLNode *node);
+DoLNode* DeleteNode(DoLNode *node);
 
 // 删除第一个相符的数据所在的节点，前序
-DoLNode* deleteNodeWithValue(void *val);
+DoLNode* DeleteNodeWithValue(char *val);
+
+// 打印整个链表
+void printList(DoLNode *node);
+
+// 前序遍历
+void ergodic(DoLNode *node, void **out_params, void *(* function)(void **in_params));
+
+// 后续遍历
+void postorderTraversal(DoLNode *node, void **out_params, void *(* function)(void **in_params));
+
+// 排序
+DoLNode *sorted(DoLNode *node);
 
 #endif //DOUBLE_LINKED_LIST_DOUBLE_LINKED_LIST_H

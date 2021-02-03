@@ -77,4 +77,6 @@ int hasLoop(Node *node);
 // TODO 获取循环的起始节点
 Node* getLoopStartNode(Node *node);
 
+//TODO  插入节点
+
 #endif //LINKED_LIST_LINKED_LIST_H

@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/d/codes/cstudy/data-structure/double_linked_list/double_linked_list.h
+
+/mnt/d/codes/cstudy/data-structure/double_linked_list/main.c
+stdio.h
+-
+double_linked_list.h
+/mnt/d/codes/cstudy/data-structure/double_linked_list/double_linked_list.h
+

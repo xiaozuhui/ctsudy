@@ -11,8 +11,6 @@
 /mnt/d/codes/cstudy/data-structure/LinkedList/main.c
 stdio.h
 -
-stdlib.h
--
 linked_list.h
 /mnt/d/codes/cstudy/data-structure/LinkedList/linked_list.h
 

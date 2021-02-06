@@ -29,6 +29,9 @@ Node* add(Node *p, int val);
 // 获取某节点后第n个节点
 Node* get(Node *p, int index);
 
+// 反向寻找
+Node* getNegative(Node *p, int index);
+
 // 创建多个节点
 Node* generateList(Node *node, const int *values, int n);
 
@@ -47,7 +50,33 @@ Node* clear(Node *node);
 // 下标为n和m的两个节点进行交换
 Node* swap(Node *node, int n, int m);
 
+// 交换某链表中的两个节点
+Node* swapNode(Node *node, Node *n1, Node *n2);
+
+// 计算链表节点个数
+int len(Node *p);
+
 // 打印节点
 void printNode(Node *node);
+
+// 排序
+void sort(Node *node);
+
+// 排序
+Node* sorted(Node *node);
+
+// 反转链表
+void reserve(Node *node);
+
+// 反转链表
+Node* reserved(Node *node);
+
+// 判断是否存在循环
+int hasLoop(Node *node);
+
+// TODO 获取循环的起始节点
+Node* getLoopStartNode(Node *node);
+
+//TODO  插入节点
 
 #endif //LINKED_LIST_LINKED_LIST_H

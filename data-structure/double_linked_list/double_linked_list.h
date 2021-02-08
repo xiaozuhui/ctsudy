@@ -52,6 +52,21 @@ void ergodic(DoLNode *node, void **out_params, void *(* function)(void **in_para
 void postorderTraversal(DoLNode *node, void **out_params, void *(* function)(void **in_params));
 
 // 排序
-DoLNode *sorted(DoLNode *node);
+DoLNode *Sorted(DoLNode *node);
+
+// 交换
+void Swap(DoLNode *n1, DoLNode *n2);
+
+// 交换
+DoLNode * Swapped(DoLNode *n1, DoLNode *n2);
+
+// 交换
+DoLNode * IdxSwap(DoLNode *node, int idx1, int idx2);
+
+DoLNode *IndexOf(DoLNode *node, int idx);
+
+void printNode(DoLNode *node[], int n);
+
+int Count(DoLNode *node);
 
 #endif //DOUBLE_LINKED_LIST_DOUBLE_LINKED_LIST_H

@@ -6,25 +6,17 @@
 
 #IncludeRegexTransform: 
 
-<<<<<<< HEAD
 /home/xiaozuhui/Codes/cstudy/data-structure/double_linked_list/double_linked_list.c
-=======
-/mnt/d/codes/cstudy/data-structure/double_linked_list/double_linked_list.c
->>>>>>> df614b48a400b01754dca5711fc4421c83a583f8
 stdlib.h
 -
 stdio.h
 -
 double_linked_list.h
-<<<<<<< HEAD
 /home/xiaozuhui/Codes/cstudy/data-structure/double_linked_list/double_linked_list.h
 
 /home/xiaozuhui/Codes/cstudy/data-structure/double_linked_list/double_linked_list.h
 =======
 /mnt/d/codes/cstudy/data-structure/double_linked_list/double_linked_list.h
-
-/mnt/d/codes/cstudy/data-structure/double_linked_list/double_linked_list.h
->>>>>>> df614b48a400b01754dca5711fc4421c83a583f8
 
 /home/xiaozuhui/Codes/cstudy/data-structure/double_linked_list/main.c
 stdio.h

@@ -38,4 +38,26 @@ int main() {
     print(node);  // header -> 7 -> 5 -> 2 -> 2 -> 0 -> null
     node = reserved(sorted(node));  // 排序、反转
     print(node);
+    printf("-------------\n");
+    Node *n3 = getNegative(node, -4); // 值：5	是否头节点：否
+    printNode(n3);
+
+    // 构造一个环形链表
+    add(node, 76);
+    add(node, -1);
+    add(node, 87);
+    print(node);  // header -> 7 -> 5 -> 2 -> 2 -> 0 -> 76 -> -1 -> 87 -> null
+    sort(node);
+    print(node);  // header -> -1 -> 0 -> 2 -> 2 -> 5 -> 7 -> 76 -> 87 -> null
+
+    Node *n4 = getNegative(node, -1);
+    printNode(n4);  // 值：87	是否头节点：否
+    Node *n5 = getNegative(node, -3);
+    printNode(n5);  // 值：7	是否头节点：否
+    n4->next = n5;
+    // print(node);  // ... -> 7 -> 76 -> 87 -> 7 -> 76 -> 87 -> 7 -> 76 -> 87 -> 7 -> 76 -> 87 -> 7 -> 76 -> 87 -> 7 -> 76 -> 87 -> 7 -> 76 -> 87 -> 7 -> 76 -> 87 -> 7 -> 76 -> ...
+
+    int isLoop = hasLoop(node);
+    printf("是否存在环：%s", isLoop == 1 ? "是": "否");  // 是否存在环：是
+
 }

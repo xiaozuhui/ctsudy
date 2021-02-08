@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/xiaozuhui/Codes/cstudy/data-structure/LinkedList/linked_list.c
+linked_list.h
+/home/xiaozuhui/Codes/cstudy/data-structure/LinkedList/linked_list.h
+stddef.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+/home/xiaozuhui/Codes/cstudy/data-structure/LinkedList/linked_list.h
+
+/home/xiaozuhui/Codes/cstudy/data-structure/LinkedList/main.c
+stdio.h
+-
+linked_list.h
+/home/xiaozuhui/Codes/cstudy/data-structure/LinkedList/linked_list.h
+

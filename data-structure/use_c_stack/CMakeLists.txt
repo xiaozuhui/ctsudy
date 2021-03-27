@@ -5,6 +5,6 @@ set(CMAKE_C_STANDARD 99)
 
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs)
 
-add_executable(cds main.c Stack.h)
+add_executable(cds main.c Stack.h opts.c opts.h opts.c opts.h)
 
 target_link_libraries(cds libc_stack.a)

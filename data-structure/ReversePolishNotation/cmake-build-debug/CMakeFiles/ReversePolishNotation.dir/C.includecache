@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/ReversePolishNotation/Queue.h
+
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/ReversePolishNotation/Stack.h
+
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/ReversePolishNotation/rpn.c
+stdlib.h
+-
+rpn.h
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/ReversePolishNotation/rpn.h
+Queue.h
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/ReversePolishNotation/Queue.h
+
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/ReversePolishNotation/rpn.h
+Stack.h
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/ReversePolishNotation/Stack.h
+Queue.h
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/ReversePolishNotation/Queue.h
+stdbool.h
+-
+

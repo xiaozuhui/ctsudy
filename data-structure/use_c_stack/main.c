@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "Stack.h"
+#include "opts.h"
 
 int main() {
     Stack s = InitStack("abcdefghijklnmopq");
@@ -22,11 +23,22 @@ int main() {
     Delete(&s);
     Print(&s);
     ReInitStack(&s);
-    Push(&s, 'W');
-    Push(&s, 'W');
-    Push(&s, 'W');
+    Push(&s, 'A');
+    Push(&s, 'B');
+    Push(&s, 'C');
     Print(&s);
-    return 0;
+    char t = Pop(&s);
+    printf("%c\n", t);
+    t = Pop(&s);
+    printf("%c\n", t);
+    Print(&s);
+
+    // 转为后缀表达式
+//    Stack exp = GenerateRPN("1+2*3+(4*5+6)*7", 16);
+//    Print(&exp);
+//    float res = ComputeRPN(&exp);
+//    printf("计算结构是：%.2lf", res);
+//    return 0;
 }
 
 /**
@@ -100,6 +112,12 @@ peek item: �
 堆栈元素如下：
 -------
 W	W	W
+-------
+堆栈大小：15
+堆栈元素个数：13
+堆栈元素如下：
+-------
+1 2	3 *	+ 4	5 *	6 +	7 *	+
 -------
 
 Process finished with exit code 0

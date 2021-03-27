@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/use_c_stack/Stack.h
+
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/use_c_stack/main.c
+stdio.h
+-
+Stack.h
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/use_c_stack/Stack.h
+opts.h
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/use_c_stack/opts.h
+
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/use_c_stack/opts.h
+Stack.h
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/use_c_stack/Stack.h
+stdbool.h
+-
+

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/queue/Queue.c
+stddef.h
+-
+stdlib.h
+-
+strings.h
+-
+stdio.h
+-
+Queue.h
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/queue/Queue.h
+
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/queue/Queue.h
+

@@ -1,0 +1,3 @@
+/mnt/d/codes/cstudy/c-primer-plus/CMakeFiles/rebuild_cache.dir
+/mnt/d/codes/cstudy/c-primer-plus/CMakeFiles/edit_cache.dir
+/mnt/d/codes/cstudy/c-primer-plus/CMakeFiles/c_primer_plus.dir

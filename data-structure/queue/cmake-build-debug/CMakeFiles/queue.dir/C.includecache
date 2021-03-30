@@ -6,17 +6,26 @@
 
 #IncludeRegexTransform: 
 
-/Users/xuziheng/Documents/Workspace/cstudy/data-structure/queue/Queue.c
-stddef.h
--
+<<<<<<< HEAD
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/queue/Queue.h
+
+/Users/xuziheng/Documents/Workspace/cstudy/data-structure/queue/main.c
+=======
+/mnt/d/codes/cstudy/data-structure/queue/Queue.c
 stdlib.h
 -
 strings.h
 -
+>>>>>>> f3e1294 (tmp)
 stdio.h
 -
+string.h
+-
 Queue.h
-/Users/xuziheng/Documents/Workspace/cstudy/data-structure/queue/Queue.h
+/mnt/d/codes/cstudy/data-structure/queue/Queue.h
 
-/Users/xuziheng/Documents/Workspace/cstudy/data-structure/queue/Queue.h
+<<<<<<< HEAD
+=======
+/mnt/d/codes/cstudy/data-structure/queue/Queue.h
 
+>>>>>>> f3e1294 (tmp)

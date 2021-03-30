@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-ToolSet: 1.0 (local)Options: 
-=======
 ToolSet: Ubuntu 20.04.2 LTS (local)@C:\Users\xuzh\AppData\Local\Microsoft\WindowsApps\ubuntu2004.exe
 Options: 
->>>>>>> df614b48a400b01754dca5711fc4421c83a583f8
 
 Options:

@@ -52,6 +52,6 @@ Mkfile.old
 dkms.conf
 
 # 项目内部输出
-*/.vscode/
-*/.idea/
+*/.vscode/*
+*/.idea/*
 */cmake-build-debug/*

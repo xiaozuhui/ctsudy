@@ -1,133 +1,73 @@
-//
-// Created by xuzh on 2020/11/16.
-//
-
-#include "Stack.h"
-#include <stdio.h>
-#include <string.h>
+#include "stack.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-Stack InitStack(const char * chs) {
-    Stack s;
-    s.Count = DEFAULT_COUNT;
-    s.Size = DEFAULT_SIZE;
-    s.Items = (char *)malloc(DEFAULT_SIZE * CHAR_SIZE);
-    int len = (int)strlen(chs);
-    if(len > s.Size - s.Count){
-        // 需要重新分配内存
-        WEATHER success = ExtendSize(&s, BLOCK_SIZE);
-        if(success != OK) {
-            // 如果分配失败，则截取后塞入栈中
-            len = s.Size - s.Count;
-        }
+stack init(int n, char **items) {
+    stack stk;
+    if (n == 0) {
+        stk.count = 0;
+        stk.size = DEFAULT_SIZE;
+        stk.items = (char **) malloc(CHAR_SIZE * 100 * DEFAULT_SIZE);
+        stk.ptr = stk.items;
+        return stk;
     }
-    for(int i  = 0; i < len; i++) {
-        s.Items[i] = chs[i];
+    stk.count = n;
+    stk.size = n * 2;
+    stk.items = (char **) malloc((CHAR_SIZE * 100) * (n * 2));
+    /**
+     * 这里稍作记录
+     * 因为stk.items是一个字符串数组，即char **
+     * 所以stk.items是整个数组的首地址，因此不会往后移动，便只能使用下标的方式来复制
+     * 但是作为栈首部指针的ptr，必须要拿到items的最后一个元素的地址，所以使用&stk.items[stk.count - 1]的方式来获取
+     */
+    for (int i = 0; i < n; i++) {
+        stk.items[i] = *items;
+        items++;
     }
-    s.Count = len;
-    return s;
+    stk.ptr = &stk.items[stk.count - 1];
+    return stk;
 }
 
-int ExtendSize(Stack * s, int n) {
-    char * p = (char *)realloc(s->Items, n * CHAR_SIZE);
-    if(p != NULL) {
-        *s->Items = *p;
-        s->Size += n;
+WEATHER extend(stack *stk, int n) {
+    char **p = (char **) realloc(stk->items, n * (CHAR_SIZE * 100));
+    if (p != NULL) {
+        *stk->items = *p;
+        stk->size += n;
         return OK;
     }
     return FAIL;
 }
 
-void Print(const Stack * s) {
-    if(s == NULL) {
+void PrintStack(const stack *stk) {
+    if (stk == NULL) {
         printf("堆栈不能为空指针\n");
         return;
     }
-    printf("堆栈大小：%i\n", s->Size);
-    printf("堆栈元素个数：%i\n", s->Count);
-    printf("堆栈元素如下：\n");
     printf("-------\n");
-    for(int i = 0; i < s->Count; i++) {
-        if(i != 0 && i % 4 == 0) {
-            printf("\n");
-        }
-        printf("%c\t", s->Items[i]);
+    printf("堆栈大小：%i\n", stk->size);
+    printf("堆栈元素个数：%i\n", stk->count);
+    printf("堆栈元素如下：\n");
+    char **p = stk->items;
+    char **end = stk->ptr + 1;
+    while (p != end) {
+        printf("%s\n", *p);
+        p++;
     }
-    printf("\n-------\n");
+    printf("-------\n");
 }
 
-char Pop(Stack * s) {
-    if(s->Count == 0) {
-        return '\0';
-    }
-    char lastItem = s->Items[s->Count - 1];
-    s->Items[s->Count - 1] = '\0';
-    s->Count -= 1;
-    if(s->Count <= DEFAULT_SIZE && s->Size > DEFAULT_SIZE) {
-        // 如果元素个数少于默认长度，且当前长度大于默认长度
-        // 释放原本的空间，重新分配空间
-        char * p = s->Items;
-        s->Items = (char *)malloc(DEFAULT_SIZE * CHAR_SIZE);
-        for(int i = 0; i < s->Count; i++) {
-            s->Items[i] = p[i];
-        }
-        free(p);
-        s->Size = DEFAULT_SIZE;
-    }
-    return lastItem;
-}
-
-int Push(Stack * s, char c) {
-    if(s->Count + 1 > s->Size) {
+WEATHER push(stack *stk, char *item) {
+    if (stk->count + 1 > stk->size) {
         // 分配内存空间
-        WEATHER success = ExtendSize(s, BLOCK_SIZE);
-        if(success != OK) {
+        WEATHER success = extend(stk, stk->size);
+        if (success != OK) {
             return FAIL;
         }
     }
-    s->Items[s->Count] = c;
-    s->Count ++;
-    return s->Count;
+    stk->items[stk->count] = item;
+    stk->ptr = &stk->items[stk->count];
+    stk->count++;
+    return OK;
 }
 
-int PushItems(Stack * s, const char * chs) {
-    int len = (int)strlen(chs);
-    int surplus = s->Size - s->Count;
-    if (surplus < len) {
-        // 分配内存
-        WEATHER success = ExtendSize(s, BLOCK_SIZE * ((int)((len - surplus) / BLOCK_SIZE) + 1));
-        if(success != OK) {
-            return FAIL;
-        }
-    }
-    for(int i = 0; i < len; i++) {
-        s->Items[s->Count + i] = chs[i];
-    }
-    s->Count += len;
-    return s->Count;
-}
 
-char Peek(const Stack * s, int idx) {
-    if(idx != 0 && idx != -1) {
-        return FAIL;
-    }
-    if(idx == 0) {
-        return s->Items[0];
-    } else {
-        return s->Items[s->Count - 1];
-    }
-}
-
-void Delete(Stack * s) {
-    if(s != NULL) {
-        free(s->Items);
-        s->Count = 0;
-        s->Size = 0;
-    }
-}
-
-void ReInitStack(Stack * s) {
-    s->Count = DEFAULT_COUNT;
-    s->Size = DEFAULT_SIZE;
-    s->Items = (char *)malloc(DEFAULT_SIZE * CHAR_SIZE);
-}

@@ -12,33 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5158ebb3-6c54-45d5-8649-08d8d422d1dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.20.2/CMakeSystem.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.20.2/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/Stack.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stack.h" beforeDir="false" afterPath="$PROJECT_DIR$/Stack.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/.idea/cds.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/.idea/cds1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/.idea/deployment.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/Stack.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/main.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/opts.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../use_c_stack/opts.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/stack.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stack.h" beforeDir="false" afterPath="$PROJECT_DIR$/stack.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,12 +46,13 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="c_stack" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="c_stack" TARGET_NAME="c_stack" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="c_stack" RUN_TARGET_NAME="c_stack">
@@ -97,6 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1633703141174</updated>
       <workItem from="1633703143168" duration="8524000" />
+      <workItem from="1633749813617" duration="9216000" />
     </task>
     <servers />
   </component>
@@ -113,8 +92,20 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.c</url>
+          <line>14</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -14,12 +14,21 @@
 
 /**
  * 栈结构体
+ *
+ * @description
+ *  本质是一个数组，最下层是数组的头指针，最上层是数组的尾指针\n
+ *  例如：\n
+ *  |_34_| \<- ptr   \n
+ *  |_34_|           \n
+ *  |_24_|           \n
+ *  |_24_| \<- items \n
+ *
  * @param count 元素个数
- * @param size 栈长度
+ * @param size  栈长度
  * @param items 底部指针
- * @param ptr 首位指针
+ * @param ptr   首位指针
  */
-typedef struct Stack {
+typedef struct stack {
     int count; // 元素个数
     int size; // 堆栈长度
     char **items; // 元素底部指针
@@ -68,7 +77,7 @@ WEATHER push_items(stack *stk, int n, char **items);
 
 /**
  * 获取数据
- * 0代表最下层的栈元素，-1代表最上面的元素
+ * 0代表最上层的栈元素，-1代表最下层的元素
  * @param stk
  * @param idx
  * @return 获取到指定位置的元素
@@ -85,7 +94,7 @@ void clear(stack *stk);
  * 打印栈
  * @param stk 栈的引用
  */
-void PrintStack(const stack *stk);
+void print_stack(const stack *stk);
 
 
 #endif //C_STACK_STACK_H

@@ -45,6 +45,8 @@ void print_stack(const stack *stk) {
     printf("堆栈大小：%i\n", stk->size);
     printf("堆栈元素个数：%i\n", stk->count);
     printf("堆栈元素如下：\n");
+    printf("序号\t\t下标\t\t元素\n");
+    printf("——\t\t——\t\t——\n");
     for (int i = 0; i < stk->count; i++) {
         printf("%d\t\t%d\t\t%s\n", stk->count - i, stk->count - 1 - i, stk->items[i]);
     }
@@ -99,6 +101,9 @@ char *pop(stack *stk) {
 }
 
 void clear(stack *stk) {
+    /**
+     * free指针报错，这部分先放着吧，可能是指针指向的地址有问题
+     */
 //    for (int i = 0; i < stk->count; i++) {
 //        free(stk->items[i]);
 //    }

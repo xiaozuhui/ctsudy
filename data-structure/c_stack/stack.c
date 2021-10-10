@@ -41,7 +41,7 @@ void print_stack(const stack *stk) {
         printf("堆栈不能为空指针\n");
         return;
     }
-    printf("-------\n");
+    printf("____________________\n");
     printf("堆栈大小：%i\n", stk->size);
     printf("堆栈元素个数：%i\n", stk->count);
     printf("堆栈元素如下：\n");
@@ -50,7 +50,7 @@ void print_stack(const stack *stk) {
     for (int i = 0; i < stk->count; i++) {
         printf("%d\t\t%d\t\t%s\n", stk->count - i, stk->count - 1 - i, stk->items[i]);
     }
-    printf("-------\n");
+    printf("--------------------\n");
 }
 
 WEATHER push_items(stack *stk, int n, char **items) {

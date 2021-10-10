@@ -12,14 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5158ebb3-6c54-45d5-8649-08d8d422d1dc" name="Changes" comment="123">
-      <change afterPath="$PROJECT_DIR$/rpn.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpn.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/stack.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -12,8 +12,10 @@ char **split_exp(char *exp) {
     for (int i = 0; i < exp_len; i++) {
         if (IsNumber(exp[i])) { // 如果是数字
 
+        } else if (IsOpt(exp[i])) {
+            // 如果是符号，则将之前排列的字符归类
         } else {
-
+            continue;
         }
     }
 }

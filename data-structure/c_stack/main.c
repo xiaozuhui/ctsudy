@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "stack.h"
 
-int main() {
+int main()
+{
     char *items[] = {"12", "123", "453", "31", "23", "34", "7", "4", "5678", "645"};
     stack stk = init(10, items);
     print_stack(&stk);
@@ -21,7 +22,7 @@ int main() {
     print_stack(&stk);
     push(&stk, "垃圾");
     print_stack(&stk);
-//    clear(&stk);
-//    print_stack(&stk);
+    //    clear(&stk);
+    //    print_stack(&stk);
     return 0;
 }

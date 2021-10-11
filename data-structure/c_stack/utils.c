@@ -6,14 +6,32 @@
 #include <string.h>
 #include <stdbool.h>
 
-char **split_exp(char *exp) {
-    unsigned long exp_len = strlen(exp);
-    char num[exp_len];
-    for (int i = 0; i < exp_len; i++) {
-        if (IsNumber(exp[i])) { // 如果是数字
+void split_exp(char res[100][100], char *exp, int n) {
 
-        } else if (IsOpt(exp[i])) {
+    char num[100] = {'\0'};
+    int opt_count = 0;
+    int opt_start = 0;
+    for (int i = 0; i < n; i++) {
+        if (is_number(exp[i])) { // 如果是数字
+            num[i] = exp[i];
+        } else if (is_operator(exp[i])) {
             // 如果是符号，则将之前排列的字符归类
+            bool is_opt_count = false;
+            for (int j = opt_start; j < i; j++) {
+                if (num[j] == '\0') {
+                    continue;
+                }
+                is_opt_count = true;
+                res[opt_count][j - opt_start] = num[j];
+            }
+            opt_start = i + 1;
+            if (is_opt_count) {
+                res[opt_count + 1][0] = exp[i];
+                opt_count += 2;
+            } else {
+                res[opt_count][0] = exp[i];
+                opt_count += 1;
+            }
         } else {
             continue;
         }
@@ -21,7 +39,7 @@ char **split_exp(char *exp) {
 }
 
 // 是否是数字
-bool IsNumber(char exp) {
+bool is_number(char exp) {
     if (exp >= '0' && exp <= '9') {
         return true;
     }
@@ -29,10 +47,24 @@ bool IsNumber(char exp) {
 }
 
 // 是否是操作符
-bool IsOpt(char exp) {
+bool is_operator(char exp) {
     if (exp == '+' || exp == '-' ||
         exp == '*' || exp == '/' || exp == '(' || exp == ')') {
         return true;
     }
     return false;
+}
+
+bool is_number_str(char *exp) {
+    if (strlen(exp) == 1 && is_operator(exp[0])) {
+        return false;
+    }
+    return true;
+}
+
+bool is_operator_str(char *exp) {
+    if (is_number_str(exp)) {
+        return false;
+    }
+    return true;
 }

@@ -1,6 +1,7 @@
 #include "stack.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 stack init(int n, char **items) {
     stack stk;
@@ -9,7 +10,7 @@ stack init(int n, char **items) {
     }
     stk.count = n;
     stk.size = n * 2;
-    stk.items = (char **) malloc(sizeof(char *) * n * 2);
+    stk.items = (char **) malloc(sizeof(char) * 100 * n * 2);
     /**
      * 这里稍作记录
      * 因为stk.items是一个字符串数组，即char **
@@ -18,7 +19,7 @@ stack init(int n, char **items) {
      */
     for (int i = 0; i < n; i++) {
         stk.items[i] = (char *) malloc(sizeof(char) * 100);
-        stk.items[i] = *items;
+        strcat(stk.items[i], *items);
         items++;
     }
     stk.ptr = &stk.items[stk.count - 1];
@@ -29,7 +30,7 @@ WEATHER extend(stack *stk, int n) {
     // 只分配数组空间，不分配字符串空间
     char **p = (char **) realloc(stk->items, n * sizeof(char *));
     if (p != NULL) {
-        *stk->items = *p;
+        stk->items = p;
         stk->size += n;
         return OK;
     }
@@ -63,8 +64,7 @@ WEATHER push_items(stack *stk, int n, char **items) {
     }
     for (int i = 0; i < n; i++) {
         stk->items[stk->count + i] = (char *) malloc(sizeof(char) * 100);
-        stk->items[stk->count + i] = *items;
-        items++;
+        strcat(stk->items[stk->count + i], items[i]);
     }
     stk->count += n;
     stk->ptr = &stk->items[stk->count - 1];
@@ -101,13 +101,10 @@ char *pop(stack *stk) {
 }
 
 void clear(stack *stk) {
-    /**
-     * free指针报错，这部分先放着吧，可能是指针指向的地址有问题
-     */
-//    for (int i = 0; i < stk->count; i++) {
-//        free(stk->items[i]);
-//    }
-//    free(stk->items);
+    for (int i = 0; i < stk->count; i++) {
+        free(stk->items[i]);
+    }
+    free(stk->items);
     stk->count = 0;
     stk->size = 0;
     stk->ptr = NULL;

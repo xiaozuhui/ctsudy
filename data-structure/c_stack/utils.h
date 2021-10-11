@@ -3,10 +3,14 @@
 
 #include <stdbool.h>
 
-char **split_exp(char *exp);
+void split_exp(char res[100][100], char *exp, int n);
 
-bool IsNumber(char exp);
+bool is_number(char exp);
 
-bool IsOpt(char exp);
+bool is_operator(char exp);
+
+bool is_number_str(char *exp);
+
+bool is_operator_str(char *exp);
 
 #endif //C_STACK_UTILS_H
